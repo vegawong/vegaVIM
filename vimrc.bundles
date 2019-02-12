@@ -52,7 +52,9 @@ call plug#end()
 let g:solarized_termcolors=256
 let g:solarized_contrast='normal'
 let g:solarized_visibility='normal'
-colorscheme solarized
+if filereadable(expand("~/.config/nvim/plug/vim-colors-solarized/colors/solarized.vim"))
+    colorscheme solarized
+endif
 
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
