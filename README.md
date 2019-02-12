@@ -19,13 +19,13 @@ $ brew install neovim
 2. 安装配置
 
 ```
-$ curl -o- https://raw.githubusercontent.com/vegawong/vimConfig/master/install.sh | bash
+$ curl -o- https://raw.githubusercontent.com/vegawong/vegaVIM/master/install.sh | bash
 ```
 
 或者
 
 ```
-$ wget -qO- https://raw.githubusercontent.com/vegawong/vimConfig/master/install.sh | bash
+$ wget -qO- https://raw.githubusercontent.com/vegawong/vegaVIM/master/install.sh | bash
 ```
 
 3. 环境要求

@@ -34,6 +34,20 @@ lnif() {
     fi
 }
 
+
+if [ ! -e "$VIM_PATH" ]; then
+    info "clone vegaVIM to $VIM_PATH"
+    mkdir -p "$VIM_PATH"
+    git clone "$REPO_URI" "$VIM_PATH"
+    ret="$?"
+    success "Successfully cloned $APP_NAME"
+else 
+    info "update vegaVIM in $VIM_PATH"
+    cd "$VIM_PATH" && git pull origin
+    ret="$?"
+    success "Successfully updated $APP_NAME"
+fi
+
 info "setting up symlinks"
 # nvim config path for macOS
 lnif $VIM_PATH/ $HOME/.config/nvim
@@ -46,3 +60,6 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	success "Successfully installed vim-plug"
 fi
+
+info "update/install plugins using vim-plug"
+nvim +PlugInstall! +PlugClean +qall
