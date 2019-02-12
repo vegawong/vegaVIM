@@ -1,0 +1,106 @@
+" -------------------------
+"  plugin setting
+" -------------------------
+
+
+let s:VIM_PLUG_PATH = "~/.config/nvim/plug"
+
+call plug#begin(s:VIM_PLUG_PATH)
+
+" NERD
+Plug 'scrooloose/nerdtree'
+
+" 主题
+Plug 'altercation/vim-colors-solarized'
+Plug 'joshdick/onedark.vim'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" 代码片段
+Plug 'sirver/ultisnips'
+Plug 'keelii/vim-snippets'
+
+" 注释
+Plug 'tpope/vim-commentary'
+
+" 语法高亮
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mxw/vim-jsx'
+
+Plug 'raimondi/delimitmate' " 自动补全成对符号
+Plug 'alvan/vim-closetag' " 自动补全关闭tag
+
+Plug 'mhinz/vim-startify'  " start page
+
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh'}  " 快速打开文件 
+
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}  " Typescript service
+"Plug 'quramy/tsuquyomi'
+
+Plug 'prettier/vim-prettier', {
+            \ 'do': 'npm install',
+            \ 'for': ['javascript', 'typescript', 'typescript.tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue']
+            \}
+
+
+call plug#end()
+
+
+
+" 插件设置
+let g:solarized_termcolors=256
+let g:solarized_contrast='normal'
+let g:solarized_visibility='normal'
+colorscheme solarized
+
+" nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if !argc() | Startify | NERDTree | wincmd w | endif
+nnoremap <leader>fl :NERDTreeToggle<CR>   " 切换NERDTree显示，速记'file list'
+let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let NERDTreeMinimalUI=1
+
+"airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
+let g:airline_powerline_fonts = 1
+let g:airline_theme='onedark'
+
+" delmitmate
+let delmitMate_expand_cr = 1
+let delmitMate_expand_space = 1
+let delmitMate_matchpairs = "(:),[:],{:}"
+" vim-closetag
+let g:closetag_filetypes="xml,html,phtml,ejs,php,typescriptreact,javascriptreact"
+
+" vim-startify
+let g:startify_custom_header = [
+            \' $$$$$$$$\                        $$\     $$\                                   $$$$$$$\                        $$\     ',
+            \' \__$$  __|                       \$$\   $$  |                                  $$  __$$\                       $$ |    ',
+            \'    $$ | $$$$$$\  $$\   $$\        \$$\ $$  /$$$$$$\  $$\   $$\  $$$$$$\        $$ |  $$ | $$$$$$\   $$$$$$$\ $$$$$$\   ',
+            \'    $$ |$$  __$$\ $$ |  $$ |        \$$$$  /$$  __$$\ $$ |  $$ |$$  __$$\       $$$$$$$\ |$$  __$$\ $$  _____|\_$$  _|  ',
+            \'    $$ |$$ |  \__|$$ |  $$ |         \$$  / $$ /  $$ |$$ |  $$ |$$ |  \__|      $$  __$$\ $$$$$$$$ |\$$$$$$\    $$ |    ',
+            \'    $$ |$$ |      $$ |  $$ |          $$ |  $$ |  $$ |$$ |  $$ |$$ |            $$ |  $$ |$$   ____| \____$$\   $$ |$$\ ',
+            \'    $$ |$$ |      \$$$$$$$ |          $$ |  \$$$$$$  |\$$$$$$  |$$ |            $$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |',
+            \'    \__|\__|       \____$$ |          \__|   \______/  \______/ \__|            \_______/  \_______|\_______/    \____/ ',
+            \'                  $$\   $$ |                                                                                            ',
+            \'                  \$$$$$$  |                                                                                            ',
+            \'                   \______/                                                                                             '
+            \]
+
+" prettier
+nnoremap <leader><c-f> :Prettier<CR>
+let g:pretteri#config#tab_width = 4
+let g:prettier#config#single_quote = 'true'
+
+" vim-jsx
+let g:jsx_ext_required = 0   " Allow JSX in normal JS files
+" autocmd BufRead,BufNewFile *.tsx setlocal syntax=javascript.jsx
+
