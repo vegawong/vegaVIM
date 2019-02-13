@@ -43,6 +43,11 @@ Plug 'prettier/vim-prettier', {
             \ 'for': ['javascript', 'typescript', 'typescript.tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue']
             \}
 
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
+
 
 call plug#end()
 
@@ -105,4 +110,7 @@ let g:prettier#config#single_quote = 'true'
 " vim-jsx
 let g:jsx_ext_required = 0   " Allow JSX in normal JS files
 " autocmd BufRead,BufNewFile *.tsx setlocal syntax=javascript.jsx
+
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
 
