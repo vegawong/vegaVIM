@@ -48,6 +48,9 @@ Plug 'Shougo/deoplete.nvim'
 " For Denite features
 Plug 'Shougo/denite.nvim'
 
+" 缩进提示
+Plug 'Yggdroot/indentLine'
+
 
 call plug#end()
 
@@ -69,7 +72,7 @@ let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
-let NERDShowHidden=1
+let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let NERDTreeMinimalUI=1
 
@@ -113,4 +116,10 @@ let g:jsx_ext_required = 0   " Allow JSX in normal JS files
 
 " Enable deoplete at startup
 let g:deoplete#enable_at_startup = 1
+
+" indentLine
+let g:indentLine_enabled = 1
+let g:indentLine_concealcursor = 0
+let g:indentLine_char = '┆'
+let g:indentLine_faster = 1
 

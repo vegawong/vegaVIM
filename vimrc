@@ -21,6 +21,9 @@ set background=dark
 set noswapfile
 set nobackup
 
+set mousemodel=popup
+set mouse=a
+
 " soft tab
 set tabstop=4
 set shiftwidth=4
@@ -63,6 +66,11 @@ nnoremap <leader>7b :7b<CR>
 nnoremap <leader>8b :8b<CR>
 nnoremap <leader>9b :9b<CR>
 nnoremap <leader>0b :0b<CR>
+
+
+" 编辑模式下光标左右移动
+inoremap <c-f> <right>
+inoremap <c-b> <left>
 
 
 
