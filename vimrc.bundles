@@ -57,7 +57,7 @@ call plug#end()
 
 
 " 插件设置
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 let g:solarized_contrast='normal'
 let g:solarized_visibility='normal'
 if filereadable(expand("~/.config/nvim/plug/vim-colors-solarized/colors/solarized.vim"))
@@ -84,9 +84,9 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='onedark'
 
 " delmitmate
-let delmitMate_expand_cr = 1
-let delmitMate_expand_space = 1
-let delmitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+let delimitMate_matchpairs = "(:),[:],{:}"
 " vim-closetag
 let g:closetag_filetypes="xml,html,phtml,ejs,php,typescriptreact,javascriptreact"
 
