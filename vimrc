@@ -72,6 +72,11 @@ nnoremap <leader>0b :0b<CR>
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 
+" 复制、粘贴
+noremap YY "+y<CR>
+noremap <leader>p "+gP<CR>
+noremap XX "+x<CR>
+
 
 
 "Load plugins

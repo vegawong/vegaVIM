@@ -68,7 +68,7 @@ endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if !argc() | Startify | NERDTree | wincmd w | endif
 nnoremap <leader>fl :NERDTreeToggle<CR>   " 切换NERDTree显示，速记'file list'
-let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.gitkeep$']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
