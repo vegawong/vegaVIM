@@ -16,6 +16,9 @@ syntax enable
 syntax on
 set background=dark
 
+set hidden " 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存
+
+set cmdheight=2
 
 " 去掉默认的swap文件生成
 set noswapfile

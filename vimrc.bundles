@@ -44,7 +44,10 @@ Plug 'prettier/vim-prettier', {
             \}
 
 " For async completion
-Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/deoplete.nvim'
+" completion or can use coc.nvim
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 " For Denite features
 Plug 'Shougo/denite.nvim'
 
@@ -152,4 +155,6 @@ let g:indentLine_enabled = 1
 let g:indentLine_concealcursor = 0
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
+
+" coc
 
