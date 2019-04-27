@@ -7,174 +7,34 @@ let s:VIM_PLUG_PATH = "~/.config/nvim/plug"
 
 call plug#begin(s:VIM_PLUG_PATH)
 
-" NERD
-Plug 'scrooloose/nerdtree'
-
-" 主题
-Plug 'altercation/vim-colors-solarized'
-Plug 'joshdick/onedark.vim'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" 代码片段
-Plug 'sirver/ultisnips'
-Plug 'keelii/vim-snippets'
-
-" 注释
-Plug 'tpope/vim-commentary'
-
-" 语法高亮
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mxw/vim-jsx'
-
+Plug 'yianwillis/vimcdoc' " vim中文帮助文档
+Plug 'scrooloose/nerdtree' " NERD文件树
+Plug 'altercation/vim-colors-solarized' " solarized主题
+Plug 'joshdick/onedark.vim' " onedark主题
+Plug 'vim-airline/vim-airline' " 美化状态栏
+Plug 'vim-airline/vim-airline-themes' " 状态栏主题设置 
+Plug 'sirver/ultisnips' " 代码片段引擎
+Plug 'keelii/vim-snippets' " 一些预设的代码片段合集
+Plug 'tpope/vim-commentary' " 注释
+Plug 'HerringtonDarkholme/yats.vim' " typescript语法高亮
+Plug 'mxw/vim-jsx' " jsx语法高亮
 Plug 'raimondi/delimitmate' " 自动补全成对符号
 Plug 'alvan/vim-closetag' " 自动补全关闭tag
-
-Plug 'mhinz/vim-startify'  " start page
-
+Plug 'mhinz/vim-startify'  " 默认启动页
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh'}  " 快速打开文件 
-
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}  " Typescript service
-"Plug 'quramy/tsuquyomi'
-
+" Prettier 格式化
 Plug 'prettier/vim-prettier', {
             \ 'do': 'npm install',
             \ 'for': ['javascript', 'typescript', 'typescript.tsx', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue']
             \}
-
 " For async completion
-" Plug 'Shougo/deoplete.nvim'
 " completion or can use coc.nvim
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() }}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
-" For Denite features
-Plug 'Shougo/denite.nvim'
-
-" 缩进提示
-Plug 'Yggdroot/indentLine'
-
+Plug 'Shougo/denite.nvim' " For Denite features
+Plug 'Yggdroot/indentLine' " 缩进辅助线
 
 call plug#end()
 
 
-
-" 插件设置
-" let g:solarized_termcolors=256
-let g:solarized_contrast='normal'
-let g:solarized_visibility='normal'
-if filereadable(expand("~/.config/nvim/plug/vim-colors-solarized/colors/solarized.vim"))
-    colorscheme solarized
-endif
-
-" nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if !argc() | Startify | NERDTree | wincmd w | endif
-nnoremap <leader>fl :NERDTreeToggle<CR>   " 切换NERDTree显示，速记'file list'
-let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.gitkeep$']
-let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=1
-let NERDTreeMouseMode=2
-let NERDTreeShowHidden=1
-let NERDTreeKeepTreeInNewTab=1
-let NERDTreeMinimalUI=1
-
-"airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
-let g:airline_powerline_fonts = 1
-let g:airline_theme='onedark'
-
-" delmitmate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
-let delimitMate_matchpairs = "(:),[:],{:}"
-" vim-closetag
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
-
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
-
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
-
-" vim-startify
-let g:startify_custom_header = [
-            \' $$$$$$$$\                        $$\     $$\                                   $$$$$$$\                        $$\     ',
-            \' \__$$  __|                       \$$\   $$  |                                  $$  __$$\                       $$ |    ',
-            \'    $$ | $$$$$$\  $$\   $$\        \$$\ $$  /$$$$$$\  $$\   $$\  $$$$$$\        $$ |  $$ | $$$$$$\   $$$$$$$\ $$$$$$\   ',
-            \'    $$ |$$  __$$\ $$ |  $$ |        \$$$$  /$$  __$$\ $$ |  $$ |$$  __$$\       $$$$$$$\ |$$  __$$\ $$  _____|\_$$  _|  ',
-            \'    $$ |$$ |  \__|$$ |  $$ |         \$$  / $$ /  $$ |$$ |  $$ |$$ |  \__|      $$  __$$\ $$$$$$$$ |\$$$$$$\    $$ |    ',
-            \'    $$ |$$ |      $$ |  $$ |          $$ |  $$ |  $$ |$$ |  $$ |$$ |            $$ |  $$ |$$   ____| \____$$\   $$ |$$\ ',
-            \'    $$ |$$ |      \$$$$$$$ |          $$ |  \$$$$$$  |\$$$$$$  |$$ |            $$$$$$$  |\$$$$$$$\ $$$$$$$  |  \$$$$  |',
-            \'    \__|\__|       \____$$ |          \__|   \______/  \______/ \__|            \_______/  \_______|\_______/    \____/ ',
-            \'                  $$\   $$ |                                                                                            ',
-            \'                  \$$$$$$  |                                                                                            ',
-            \'                   \______/                                                                                             '
-            \]
-
-" prettier
-nnoremap <leader><c-f> :Prettier<CR>
-let g:pretteri#config#tab_width = 4
-let g:prettier#config#single_quote = 'true'
-
-" vim-jsx
-let g:jsx_ext_required = 0   " Allow JSX in normal JS files
-" autocmd BufRead,BufNewFile *.tsx setlocal syntax=javascript.jsx
-
-" Enable deoplete at startup
-let g:deoplete#enable_at_startup = 1
-
-" indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
-
-" coc
-" Use [c nad ]c for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-" Reamap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <leader>rn <Plug>(coc-rename)
-
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-    if &filetype == 'vim'
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
-endfunction
 
