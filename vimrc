@@ -80,12 +80,10 @@ let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示
 let g:airline_powerline_fonts = 1 " 启用pwerline的字体
 let g:airline_theme='onedark' " 使用onedark主题
 
-" TODO: 不知道怎么设置
 " raimondi/delimitmate
-" let delimitMate_expand_cr = 1
-" let delimitMate_expand_space = 1
-" let delimitMate_matchpairs = "(:),[:],{:}"
-
+let delimitMate_expand_cr = 1 " 在匹配符号对立enter键成对换行展开
+let delimitMate_expand_space = 1 " 在匹配符号对立空格键成对输入展开
+au FileType vim let b:delimitMate_quotes = "'" " vim文件类型关闭双引号匹配
 
 " alvan/vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
