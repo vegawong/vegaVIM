@@ -47,6 +47,7 @@ set incsearch " 在输入要搜索的文字时， 实时匹配
 set ignorecase " 搜索模式里忽略大小写
 set smartcase " 如果搜索模式包含大写字符，不使用'ignorecase'选项
 set updatetime=300 " 缩短光标停留事件触发时间
+set signcolumn=yes " 总是显示标记列，防止输入时列时显时隐导致窗口抖动
 
 "========== 
 " 加载插件
