@@ -83,18 +83,19 @@ let g:airline_theme='onedark' " 使用onedark主题
 " raimondi/delimitmate
 let delimitMate_expand_cr = 1 " 在匹配符号对立enter键成对换行展开
 let delimitMate_expand_space = 1 " 在匹配符号对立空格键成对输入展开
+let delimitMate_matchpairs = "(:),[:],{:}" " 设置非引号类的成对符号, 去掉尖括号，防止和closetag插件冲突
 au FileType vim let b:delimitMate_quotes = "'" " vim文件类型关闭双引号匹配
 
 " alvan/vim-closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
-let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.tsx,*.jsx' " 针对这些文件开启closetag插件
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx' " 针对这些文件自动写成自关闭, 比如： <img> ==> <img/>
+let g:closetag_emptyTags_caseSensitive = 1 " 自关闭标签的大小写敏感开启，比如：<img> ==> <img/> 会自关闭, 而大写的<Img> => <Img></Img>会变成非自关闭标签并自动添加结尾标签
 let g:closetag_regions = {
     \ 'typescript.tsx': 'jsxRegion,tsxRegion',
     \ 'javascript.jsx': 'jsxRegion',
-    \ }
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+    \ } " 使jsx和tsx文件只有光标在模板标签区域内closetag插件才生效
+let g:closetag_shortcut = '>' " 触发自动closetag的快捷键
+let g:closetag_close_shortcut = '<leader>>' " leader+>：不触发closetag的情况下输入>
 
 " mhinz/vim-startify 
 let g:startify_custom_header = [
