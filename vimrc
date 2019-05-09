@@ -48,6 +48,14 @@ set ignorecase " 搜索模式里忽略大小写
 set smartcase " 如果搜索模式包含大写字符，不使用'ignorecase'选项
 set updatetime=300 " 缩短光标停留事件触发时间
 set signcolumn=yes " 总是显示标记列，防止输入时列时显时隐导致窗口抖动
+if has("termguicolors")
+    " fix bug for vim
+    set t_8f=^[[38;2;%lu;%lu;%lum
+    set t_8b=^[[48;2;%lu;%lu;%lum
+
+    " 给终端开启truecolor
+    set termguicolors
+endif
 
 "========== 
 " 加载插件
@@ -60,10 +68,8 @@ endif
 "========== 
 " 插件设置
 "========== 
-" altercation/vim-colors-solarized 
-if filereadable(expand("~/.config/nvim/plug/vim-colors-solarized/colors/solarized.vim"))
-    colorscheme solarized " 使用solarized主题
-endif
+" lifepillar/vim-solarized8
+colorscheme solarized8 " 使用solarized8主题
 
 " scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1 " TODO:不明觉厉
@@ -174,11 +180,19 @@ noremap XX "+x<CR>
 " 切换NERDTree显示，速记'file list'
 nnoremap <leader>fl :NERDTreeToggle<CR>   
 
+" 跳转到上一个警告
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" 跳转到下一个警告
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" 跳转到定义
 nmap <silent> gd <Plug>(coc-definition)
+" 跳转到类型定义
 nmap <silent> gy <Plug>(coc-type-definition)
+" 跳转到实现的地方
 nmap <silent> gi <Plug>(coc-implementation)
+" 跳转到引用的地方
 nmap <silent> gr <Plug>(coc-references)
+" 变量重命名
 nmap <leader>rn <Plug>(coc-rename)
+" 显示文档
 nnoremap <silent> K :call <SID>show_documentation()<CR>

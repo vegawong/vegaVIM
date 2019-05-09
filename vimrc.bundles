@@ -9,7 +9,7 @@ call plug#begin(s:VIM_PLUG_PATH)
 
 Plug 'yianwillis/vimcdoc' " vim中文帮助文档
 Plug 'scrooloose/nerdtree' " NERD文件树
-Plug 'altercation/vim-colors-solarized' " solarized主题
+Plug 'lifepillar/vim-solarized8' " solarized8 主题(支持真色）
 Plug 'joshdick/onedark.vim' " onedark主题
 Plug 'vim-airline/vim-airline' " 美化状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题设置 
