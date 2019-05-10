@@ -21,7 +21,6 @@ filetype plugin indent on " 检测文件类型后并自动应用对应插件和�
 syntax enable " 开启语法高亮(允许自定义）
 " syntax on  " 开启语法高亮（采用默认，不允许自定义)
 set hidden " 当前缓冲区有改动且未保存时切换，vim会隐藏缓冲区而不是放弃改动，切换回来时状态还在
-set cmdheight=2 " 命令行占用屏幕行数，用两行比较好的展示一些较长的错误提示
 set noswapfile " 载入缓冲区时不生成交换文件
 set nobackup  " 覆盖文件时不生成备份文件
 set mousemodel=popup " 鼠标工作模式：右键-菜单，shift+左键扩展选择区
@@ -70,6 +69,8 @@ endif
 "========== 
 " lifepillar/vim-solarized8
 colorscheme solarized8 " 使用solarized8主题
+" 修改solarized8主题默认的signcolumn列颜色，跟行号列同色
+hi! link SignColumn LineNr
 
 " scrooloose/nerdtree
 autocmd StdinReadPre * let s:std_in=1 " TODO:不明觉厉
@@ -87,6 +88,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1 " 显示buffer索引
 let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
 let g:airline_powerline_fonts = 1 " 启用pwerline的字体
 let g:airline_theme='onedark' " 使用onedark主题
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " raimondi/delimitmate
 let delimitMate_expand_cr = 1 " 在匹配符号对立enter键成对换行展开

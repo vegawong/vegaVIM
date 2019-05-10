@@ -1,4 +1,7 @@
 {
+    "diagnostic.errorSign": ">>",
+    "diagnostic.infoSign": "--",
+    "diagnostic.warningSign": ">>",
   "tsserver.enableJavascript": false,
   "eslint.filetypes": [
     "javascript",

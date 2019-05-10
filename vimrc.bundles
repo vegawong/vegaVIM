@@ -33,7 +33,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() }}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 Plug 'Shougo/denite.nvim' " For Denite features
 Plug 'Yggdroot/indentLine' " 缩进辅助线
-Plug 'airblade/vim-gitgutter' " git 行改动提示
+Plug 'tpope/vim-fugitive' " git 插件
 
 
 call plug#end()
