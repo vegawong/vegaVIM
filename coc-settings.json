@@ -1,7 +1,12 @@
 {
-    "diagnostic.errorSign": ">>",
-    "diagnostic.infoSign": "--",
-    "diagnostic.warningSign": ">>",
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript", "javascriptreact "]
+  },
+  "diagnostic.errorSign": ">>",
+  "diagnostic.infoSign": "--",
+  "diagnostic.warningSign": ">>",
+  "suggest.noselect": false,
   "tsserver.enableJavascript": false,
   "eslint.filetypes": [
     "javascript",

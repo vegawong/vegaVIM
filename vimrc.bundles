@@ -13,8 +13,7 @@ Plug 'lifepillar/vim-solarized8' " solarized8 主题(支持真色）
 Plug 'joshdick/onedark.vim' " onedark主题
 Plug 'vim-airline/vim-airline' " 美化状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题设置 
-Plug 'sirver/ultisnips' " 代码片段引擎
-Plug 'keelii/vim-snippets' " 一些预设的代码片段合集
+Plug 'honza/vim-snippets' " 一些预设的代码片段合集
 Plug 'tpope/vim-commentary' " 注释
 Plug 'HerringtonDarkholme/yats.vim' " typescript语法高亮
 Plug 'mxw/vim-jsx' " jsx语法高亮

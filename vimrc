@@ -88,8 +88,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1 " 显示buffer索引
 let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
 let g:airline_powerline_fonts = 1 " 启用pwerline的字体
 let g:airline_theme='onedark' " 使用onedark主题
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}' " airline集成coc的错误数目显示
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}' " airline集成coc的警告数目显示
 
 " raimondi/delimitmate
 let delimitMate_expand_cr = 1 " 在匹配符号对立enter键成对换行展开
@@ -199,3 +199,20 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 " 显示文档
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" <Tab>键设置
+" 选中当前补全/展开代码片段/代码片段中跳跃/默认<TAB>制表符输入/呼出自动补全
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort " 检查当前光标是不是在空格或者行首
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" 回车键确认当前候选的选择
+" 配合coc-setting里面的suggest.noselect:false，
+" 自动选择第一个候选,回车键就默认选中第一个输入
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+                                            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
