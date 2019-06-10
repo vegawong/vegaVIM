@@ -91,5 +91,7 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 
 info "update/install plugins using vim-plug"
 nvim +PlugInstall! +PlugClean +qall
-nvim +CocInstall +qall
+nvim +CocInstall! +qall
 nvim +checkhealth
+
+
