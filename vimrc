@@ -173,6 +173,8 @@ nnoremap <leader>0b :0b<CR>
 " 编辑模式下光标左右移动
 inoremap <c-f> <right>
 inoremap <c-b> <left>
+" search word under cursor, the pattern is treated as regex, and enter normal mode directly
+noremap <leader>ff :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " 复制当前内容到系统粘贴板
 noremap YY "+y<CR>
 " 将系统粘贴板内容粘贴到当前位置

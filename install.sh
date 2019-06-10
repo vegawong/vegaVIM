@@ -34,6 +34,35 @@ lnif() {
     fi
 }
 
+checkenv() {
+    if ! command -v node>/dev/null; then
+        error 'nodejs is not installed'
+        exit 1
+    fi
+
+    if ! command -v npm/dev/null; then
+        error 'npm is not installed'
+        exit 1
+    fi 
+
+    if ! command -v tsc>/dev/null; then
+        error 'typescript is not installed globally'
+        exit 1
+    fi
+
+    if ! command -v python>/dev/null; then
+        error 'python2 is not installed'
+        exit 1
+    fi 
+
+    if ! command -v python3>/dev/null; then
+        error 'python3 is not installed'
+        exit 1
+    fi 
+}
+
+
+checkenv
 
 if [ ! -e "$VIM_PATH" ]; then
     info "clone vegaVIM to $VIM_PATH"
@@ -58,8 +87,9 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 	info "Installing Vim-Plug"
 	curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	success "Successfully installed vim-plug"
-fi
+	success "Successfully installed vim-plug" fi
 
 info "update/install plugins using vim-plug"
 nvim +PlugInstall! +PlugClean +qall
+nvim +CocInstall +qall
+nvim +checkhealth
