@@ -40,7 +40,7 @@ checkenv() {
         exit 1
     fi
 
-    if ! command -v npm/dev/null; then
+    if ! command -v npm>/dev/null; then
         error 'npm is not installed'
         exit 1
     fi 
