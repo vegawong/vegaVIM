@@ -87,7 +87,8 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 	info "Installing Vim-Plug"
 	curl -fLo $HOME/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	success "Successfully installed vim-plug" fi
+	success "Successfully installed vim-plug"
+fi
 
 info "update/install plugins using vim-plug"
 nvim +PlugInstall! +PlugClean +qall
