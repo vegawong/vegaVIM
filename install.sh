@@ -91,10 +91,10 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 fi
 
 info "update/install plugins by vim-plug"
-nvim +PlugInstall! +PlugClean +qall
+nvim +PlugInstall! +PlugClean +qall!
 info "update/install coc extensions by coc.nvim"
 ln -sf $VIM_PATH/coc $HOME/.config/coc
-nvim +CocUpdateSync +qall
+nvim +CocUpdateSync +qall!
 nvim +checkhealth
 
 
