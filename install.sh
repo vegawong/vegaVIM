@@ -101,9 +101,9 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 fi
 
 info "update/install plugins by vim-plug"
-NVIM_COMMAND +PlugInstall! +PlugClean +UpdateRemotePlugins +qall!
+$NVIM_COMMAND +PlugInstall! +PlugClean +UpdateRemotePlugins +qall!
 info "update/install coc extensions by coc.nvim"
 ln -sf $VIM_PATH/coc $HOME/.config/coc
-NVIM_COMMAND +CocUpdateSync +qall!
+$NVIM_COMMAND +CocUpdateSync +qall!
 
 
