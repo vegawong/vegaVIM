@@ -28,8 +28,8 @@ Plug 'prettier/vim-prettier', {
             \}
 " For async completion
 " completion or can use coc.nvim
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install() }}
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
+" Use release branch (Recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/denite.nvim' " For Denite features
 Plug 'Yggdroot/indentLine' " 缩进辅助线
 Plug 'tpope/vim-fugitive' " git 插件
