@@ -2,6 +2,7 @@
 
 APP_NAME='vegaVIM'
 REQUIRE="npm node git"
+NVIM_COMMAND="$(which nvim)"
 [ -z "$VIM_PATH" ] && VIM_PATH="$HOME/.vegaVIM"
 [ -z "$REPO_URI" ] && REPO_URI="https://github.com/vegawong/vegaVIM"
 
@@ -58,7 +59,16 @@ checkenv() {
     if ! command -v python3>/dev/null; then
         error 'python3 is not installed'
         exit 1
-    fi 
+    fi
+
+    if [[ ! $NVIM_COMMAND ]]; then
+        if [[ -s $HOME/bin/nvim ]]; then
+            NVIM_COMMAND="$HOME/bin/nvim"
+        else 
+            error "Command nvim is not found. Please make sure neovim was installed!"
+        fi
+    fi
+
 }
 
 
@@ -91,9 +101,9 @@ if [ ! -e $HOME/.local/share/nvim/site/plugin/plug.vim ]; then
 fi
 
 info "update/install plugins by vim-plug"
-bash -c "nvim +PlugInstall! +PlugClean +qall!"
+NVIM_COMMAND +PlugInstall! +PlugClean +UpdateRemotePlugins +qall!
 info "update/install coc extensions by coc.nvim"
 ln -sf $VIM_PATH/coc $HOME/.config/coc
-bash -c "nvim +CocUpdateSync +qall!"
+NVIM_COMMAND +CocUpdateSync +qall!
 
 
