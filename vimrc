@@ -39,7 +39,7 @@ set cursorcolumn " 高亮当前列
 set cursorline " 高亮当前行
 set encoding=utf-8 " 默认字符编码为utf-8
 set fileencodings=utf-8,ucs-bom,cp3936,gb18030,big5,euc-jp,euc-kr,latin1 " 按顺序检测符合的文件字符编码并对应改变encoding的值
-set termencoding=utf-8 " 终端使用的字符编码
+" set termencoding=utf-8 " 终端使用的字符编码
 " set guifont=Source\ Code\ Pro\ for\ Powerline:h12 " GUI版本使用的字体
 set hlsearch    " 高亮搜索
 set incsearch " 在输入要搜索的文字时， 实时匹配
@@ -72,15 +72,15 @@ colorscheme solarized8 " 使用solarized8主题
 " 修改solarized8主题默认的signcolumn列颜色，跟行号列同色
 hi! link SignColumn LineNr
 
-" scrooloose/nerdtree
-autocmd StdinReadPre * let s:std_in=1 " TODO:不明觉厉
-autocmd VimEnter * if !argc() | Startify | NERDTree | wincmd w | endif " 当启动vim不追加任何参数时，默认打开启动页，文件数窗口，并切换窗口焦点到启动页
-let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.gitkeep$'] " 文件数忽略的文件/目录列表匹配
-let NERDTreeQuitOnOpen=1 " 用NERDTree相关命令打开文件时关闭NERDTree窗口
-let NERDTreeMouseMode=2 " 鼠标单击展开节点，双击打开文件
-let NERDTreeShowHidden=1 " 显示隐藏文件，通常一些.开头的文件视为隐藏, 方便展示一些.开头的配置文件
-let NERDTreeKeepTreeInNewTab=1 " TODO: 不明觉厉
-let NERDTreeMinimalUI=1 " 去掉一些额外的显示，开启简化UI模式
+" " scrooloose/nerdtree
+" autocmd StdinReadPre * let s:std_in=1 " TODO:不明觉厉
+" autocmd VimEnter * if !argc() | Startify | NERDTree | wincmd w | endif " 当启动vim不追加任何参数时，默认打开启动页，文件数窗口，并切换窗口焦点到启动页
+" let NERDTreeIgnore = ['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$', '\.gitkeep$'] " 文件数忽略的文件/目录列表匹配
+" let NERDTreeQuitOnOpen=1 " 用NERDTree相关命令打开文件时关闭NERDTree窗口
+" let NERDTreeMouseMode=2 " 鼠标单击展开节点，双击打开文件
+" let NERDTreeShowHidden=1 " 显示隐藏文件，通常一些.开头的文件视为隐藏, 方便展示一些.开头的配置文件
+" let NERDTreeKeepTreeInNewTab=1 " TODO: 不明觉厉
+" let NERDTreeMinimalUI=1 " 去掉一些额外的显示，开启简化UI模式
 
 " vim-airline/vim-airline
 let g:airline#extensions#tabline#enabled = 1 " 开启tab栏加强
@@ -174,7 +174,7 @@ nnoremap <leader>0b :0b<CR>
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 " search word under cursor, the pattern is treated as regex, and enter normal mode directly
-noremap <leader>ff :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+" noremap <leader>ff :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
 " 复制当前内容到系统粘贴板
 noremap YY "+y<CR>
 " 将系统粘贴板内容粘贴到当前位置
@@ -182,8 +182,8 @@ noremap <leader>p "+gP<CR>
 " 剪切当前内容到系统粘贴板 
 noremap XX "+x<CR>
 
-" 切换NERDTree显示，速记'file list'
-nnoremap <leader>fl :NERDTreeToggle<CR>   
+" " 切换NERDTree显示，速记'file list'
+" nnoremap <leader>fl :NERDTreeToggle<CR>   
 
 " 跳转到上一个警告
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -218,3 +218,7 @@ endfunction
 " 自动选择第一个候选,回车键就默认选中第一个输入
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
                                             \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" coc keymap 
+noremap <leader>f :CocList files<CR>
+noremap <leader>fl :CocCommand explorer<CR>

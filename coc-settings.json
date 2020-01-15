@@ -13,5 +13,31 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "explorer.toggle": true,
+  "explorer.sources": [
+    {
+      "name": "buffer",
+      "expand": true
+    },
+    {
+      "name": "file",
+      "expand": true
+    }
+  ],
+  "explorer.file.columns": [
+    "git",
+    "selection",
+    "clip",
+    "diagnosticError",
+    "indent",
+    "icon",
+    "filename",
+    ["fullpath"],
+    ["size"],
+    ["modified"],
+    ["readonly"]
+  ],
+  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.expanded": "--"
 }
