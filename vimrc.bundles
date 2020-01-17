@@ -11,6 +11,8 @@ Plug 'yianwillis/vimcdoc' " vim中文帮助文档
 " Plug 'scrooloose/nerdtree' " NERD文件树
 Plug 'lifepillar/vim-solarized8' " solarized8 主题(支持真色）
 Plug 'joshdick/onedark.vim' " onedark主题
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline' " 美化状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题设置 
 Plug 'honza/vim-snippets' " 一些预设的代码片段合集
@@ -30,6 +32,7 @@ Plug 'prettier/vim-prettier', {
 " completion or can use coc.nvim
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -39,10 +42,11 @@ Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-tslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
 Plug 'bmatcuk/coc-stylelintplus', {'do': 'yarn install --frozen-lockfile'}
-Plug 'Shougo/denite.nvim' " For Denite features
-Plug 'Yggdroot/indentLine' " 缩进辅助线
+" Plug 'Shougo/denite.nvim' " For Denite features
+" Plug 'Yggdroot/indentLine' " 缩进辅助线
 Plug 'tpope/vim-fugitive' " git 插件
 
 

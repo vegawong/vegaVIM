@@ -25,6 +25,7 @@
       "expand": true
     }
   ],
+  "tslint.autoFixOnSave": true,
   "explorer.file.columns": [
     "git",
     "selection",
@@ -37,7 +38,5 @@
     ["size"],
     ["modified"],
     ["readonly"]
-  ],
-  "explorer.icon.enableNerdfont": true,
-  "explorer.icon.expanded": "--"
+  ]
 }

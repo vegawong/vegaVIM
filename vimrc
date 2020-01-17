@@ -68,7 +68,7 @@ endif
 " 插件设置
 "========== 
 " lifepillar/vim-solarized8
-colorscheme solarized8 " 使用solarized8主题
+colorscheme onedark " 使用solarized8主题
 " 修改solarized8主题默认的signcolumn列颜色，跟行号列同色
 hi! link SignColumn LineNr
 
@@ -125,19 +125,20 @@ let g:startify_custom_header = [
 
 " prettier/vim-prettier
 nnoremap <leader><c-f> :Prettier<CR>
-let g:pretteri#config#tab_width = 4
+let g:pretteri#config#tab_width = 2
 let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'false'
 
 " mxw/vim-jsx
 let g:jsx_ext_required = 0   " Allow JSX in normal JS files
 " autocmd BufRead,BufNewFile *.tsx setlocal syntax=javascript.jsx
 
 
-" Yggdroot/indentLine
-let g:indentLine_enabled = 1
-let g:indentLine_concealcursor = 0
-let g:indentLine_char = '┆'
-let g:indentLine_faster = 1
+" " Yggdroot/indentLine
+" let g:indentLine_enabled = 1
+" let g:indentLine_concealcursor = 0
+" let g:indentLine_char = '┆'
+" let g:indentLine_faster = 1
 
 " neoclide/coc.nvim
 function! s:show_documentation()
@@ -220,5 +221,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
                                             \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " coc keymap 
-noremap <leader>f :CocList files<CR>
-noremap <leader>fl :CocCommand explorer<CR>
+noremap <leader>f :<C-u>CocList files<CR>
+noremap <leader>fl :<C-u>CocCommand explorer<CR>
+noremap <leader>b :<C-u>CocList buffers<CR>
+noremap <leader>tsf :<C-u>CocCommand tslint.fixAllProblems<CR>
