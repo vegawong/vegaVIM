@@ -182,6 +182,10 @@ noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 " 剪切当前内容到系统粘贴板 
 noremap XX "+x<CR>
+" dd删除不占用目前寄存器, 可以粘贴上一次复制到寄存器里的内容
+noremap dd "_dd<CR>
+" ci替换不占用目前寄存器, 可以粘贴上一次复制到寄存器里的内容
+noremap ci "_ci
 
 " " 切换NERDTree显示，速记'file list'
 " nnoremap <leader>fl :NERDTreeToggle<CR>   
