@@ -89,6 +89,9 @@ function! s:UpdateCommentString()
 endfunction
 autocmd FileType * call <SID>UpdateCommentString()
 
+" jsonc
+au BufNewFile,BufRead tsconfig.json set filetype=jsonc
+
 
 " mhinz/vim-startify 
 let g:startify_custom_header = [

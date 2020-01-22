@@ -69,3 +69,24 @@ noremap <leader>fl :<C-u>CocCommand explorer<CR>
 " 显示当前buffers列表 (依赖插件coc-list)
 noremap <leader>b :<C-u>CocList buffers<CR>
 " noremap <leader>tsf :<C-u>CocCommand tslint.fixAllProblems<CR>
+"
+
+" 格式化代码(依赖插件coc-prettier)
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+vmap <leader><c-f> <Plug>(coc-format-selected)
+noremap <leader><C-f> :CocCommand prettier.formatFile<CR>
+
+
+" coc action面板
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+" Then
+" - <leader>a for the current selected range
+" - <leader>aw for the current word
+" - <leader>aas for the current sentence
+" - <leader>aap for the current paragraph
+
