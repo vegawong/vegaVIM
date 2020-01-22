@@ -21,6 +21,7 @@ Plug 'honza/vim-snippets' " 一些预设的代码片段合集
 Plug 'tpope/vim-commentary' " 注释
 Plug 'suy/vim-context-commentstring' " 同文件内区分不同代码类型段的注释上下文设置
 Plug 'mhinz/vim-startify'  " 默认启动页
+Plug 'tpope/vim-fugitive' " git集成
 
 " coc & tools with coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
