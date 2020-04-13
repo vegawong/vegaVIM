@@ -25,7 +25,7 @@
       "expand": true
     }
   ],
-  "tslint.autoFixOnSave": true,
+  /* "tslint.autoFixOnSave": true, */
   "explorer.file.columns": [
     "git",
     "selection",
@@ -38,5 +38,9 @@
     ["size"],
     ["modified"],
     ["readonly"]
-  ]
+  ],
+  "prettier.semi": false,
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.htmlWhitespaceSensitivity": "strict"
 }
