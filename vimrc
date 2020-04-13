@@ -226,6 +226,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
 
 " coc keymap 
 noremap <leader>f :<C-u>CocList files<CR>
+noremap <leader>fg :<C-u>CocList grep 
 noremap <leader>fl :<C-u>CocCommand explorer<CR>
 noremap <leader>b :<C-u>CocList buffers<CR>
 noremap <leader>tsf :<C-u>CocCommand tslint.fixAllProblems<CR>
