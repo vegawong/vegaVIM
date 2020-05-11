@@ -1,8 +1,4 @@
 {
-  "snippets.extends": {
-    "typescript": ["javascript"],
-    "typescriptreact": ["javascript", "javascriptreact "]
-  },
   "diagnostic.errorSign": ">>",
   "diagnostic.infoSign": "--",
   "diagnostic.warningSign": ">>",
@@ -18,7 +14,7 @@
   "explorer.sources": [
     {
       "name": "buffer",
-      "expand": true
+      "expand": false
     },
     {
       "name": "file",
@@ -42,5 +38,4 @@
   "prettier.semi": false,
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
-  "prettier.htmlWhitespaceSensitivity": "strict"
 }
