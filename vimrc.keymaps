@@ -67,7 +67,7 @@ noremap <leader>f :<C-u>CocList files<CR>
 " 全局搜索 依赖Coc-List rg
 noremap <leader>fg :<C-u>CocList grep 
 " 切换显示文件管理面板 （依赖插件coc-explorer）
-noremap <leader>fl :<C-u>CocCommand explorer<CR>
+" noremap <leader>fl :<C-u>CocCommand explorer<CR>
 " 显示当前buffers列表 (依赖插件coc-list)
 noremap <leader>b :<C-u>CocList buffers<CR>
 " noremap <leader>tsf :<C-u>CocCommand tslint.fixAllProblems<CR>
@@ -92,3 +92,8 @@ nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<C
 " - <leader>aas for the current sentence
 " - <leader>aap for the current paragraph
 
+" defx 文件管理
+nnoremap <silent> <leader>fl
+\ :<C-u>Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>
+nnoremap <silent> <leader>a
+\ :<C-u>Defx -resume -buffer-name=tab`tabpagenr()` -search=`expand('%:p')`<CR>

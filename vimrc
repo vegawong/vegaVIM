@@ -72,7 +72,7 @@ colorscheme onedark " 使用solarized8主题
 let g:airline#extensions#tabline#enabled = 1 " 开启tab栏加强
 let g:airline#extensions#tabline#buffer_nr_show = 1 " 显示buffer索引
 let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
-let g:airline_powerline_fonts = 0 " 启用pwerline的字体
+let g:airline_powerline_fonts = 1 " 启用pwerline的字体
 let g:airline_theme='onedark' " 使用onedark主题
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}' " airline集成coc的错误数目显示
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}' " airline集成coc的警告数目显示
@@ -91,6 +91,37 @@ autocmd FileType * call <SID>UpdateCommentString()
 
 " jsonc
 au BufNewFile,BufRead tsconfig.json set filetype=jsonc
+
+" defx
+function! s:defx_node_open() abort
+  " Open current file, or toggle directory expand/collapse
+  if defx#is_directory()
+      return defx#do_action('open_or_close_tree')
+  endif
+  return defx#do_action('multi', ['drop'])
+endfunction
+
+function! s:defx_mappings() abort
+	" Defx window keyboard mappings
+	setlocal signcolumn=no
+	" 使用回车打开文件
+	nnoremap <silent><buffer><expr> <CR> <SID>defx_node_open()
+endfunction
+
+call defx#custom#option('_', {
+	\ 'columns': 'git:indent:icons:filename',
+	\ 'winwidth': 25,
+	\ 'split': 'vertical',
+	\ 'direction': 'topleft',
+	\ 'listed': 1,
+	\ 'show_ignored_files': 0,
+	\ 'root_marker': '≡ ',
+	\ 'ignored_files':
+	\     '.mypy_cache,.pytest_cache,.git,.hg,.svn,.stversions'
+	\   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc,*.swp'
+	\ })
+
+autocmd FileType defx call s:defx_mappings()
 
 
 " mhinz/vim-startify 
