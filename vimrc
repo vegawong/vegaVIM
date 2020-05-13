@@ -69,6 +69,8 @@ colorscheme onedark " 使用solarized8主题
 " 插件设置
 "========== 
 " vim-airline/vim-airline
+let g:airline_left_sep = "\ue0c0"
+let g:airline_right_sep = "\ue0c2"
 let g:airline#extensions#tabline#enabled = 1 " 开启tab栏加强
 let g:airline#extensions#tabline#buffer_nr_show = 1 " 显示buffer索引
 let g:airline#extensions#tabline#formatter = 'unique_tail' " 更改tabName显示格式，同名时显示唯一区分
