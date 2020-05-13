@@ -125,6 +125,9 @@ call defx#custom#option('_', {
 
 autocmd FileType defx call s:defx_mappings()
 
+" vim-clap
+let g:clap_search_box_border_style = ''
+
 
 " mhinz/vim-startify 
 let g:startify_custom_header = [

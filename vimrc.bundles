@@ -25,8 +25,6 @@ Plug 'tpope/vim-fugitive' " git集成
 
 " coc & tools with coc
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-lists', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/coc-actions', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
@@ -59,6 +57,10 @@ Plug 'bmatcuk/coc-stylelintplus', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
+
+" clap : quick open
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+Plug 'vn-ki/coc-clap'
 
 call plug#end()
 
