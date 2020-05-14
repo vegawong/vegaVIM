@@ -108,6 +108,20 @@ function! s:defx_mappings() abort
 	setlocal signcolumn=no
 	" 使用回车打开文件
 	nnoremap <silent><buffer><expr> <CR> <SID>defx_node_open()
+  " 新建目录
+  nnoremap <silent><buffer><expr> ad defx#do_action('new_directory')
+  " 新建文件
+  nnoremap <silent><buffer><expr> af defx#do_action('new_file')
+  " 重命名
+  nnoremap <silent><buffer><expr> rn defx#do_action('rename')
+  " 删除
+  nnoremap <silent><buffer><expr> dd defx#do_action('remove')
+  " 剪切
+  nnoremap <silent><buffer><expr> mv defx#do_action('move')
+  " 复制
+  nnoremap <silent><buffer><expr> cp defx#do_action('copy')
+  " 粘贴
+  nnoremap <silent><buffer><expr> p defx#do_action('paste')
 endfunction
 
 call defx#custom#option('_', {
