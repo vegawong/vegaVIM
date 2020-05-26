@@ -10,31 +10,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "explorer.toggle": true,
-  "explorer.sources": [
-    {
-      "name": "buffer",
-      "expand": false
-    },
-    {
-      "name": "file",
-      "expand": true
-    }
-  ],
-  /* "tslint.autoFixOnSave": true, */
-  "explorer.file.columns": [
-    "git",
-    "selection",
-    "clip",
-    "diagnosticError",
-    "indent",
-    "icon",
-    "filename",
-    ["fullpath"],
-    ["size"],
-    ["modified"],
-    ["readonly"]
-  ],
   "prettier.semi": false,
   "prettier.tabWidth": 2,
   "prettier.singleQuote": true,
